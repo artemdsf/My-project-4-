@@ -7,8 +7,6 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Vector3 _groundCheckerOffset;
 	[SerializeField] private Vector3 _groundCheckerSize;
 	[SerializeField] private LayerMask _groundMask;
-	[SerializeField] private SceneReloader _sceneReloader;
-	[SerializeField] private string _obstacleTag;
 
 	private Vector3 _scale;
 	private Rigidbody2D _rigidbody2D;
@@ -23,14 +21,6 @@ public class PlayerController : MonoBehaviour
 	private void Update()
 	{
 		MovePlayer();
-	}
-
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (collision.CompareTag(_obstacleTag))
-		{
-			_sceneReloader.ReloadScene();
-		}
 	}
 
 	private void MovePlayer()
